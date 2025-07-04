@@ -20,8 +20,8 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "shared/colors.rasi"
-@import                          "shared/fonts.rasi"
+@import                          "~/.config/rofi/launchers/type-1/shared/colors.rasi"
+@import                          "~/.config/rofi/launchers/type-1/shared/fonts.rasi"
 
 * {
     border-colour:               var(selected);
@@ -57,16 +57,16 @@ window {
     anchor:                      west;
     fullscreen:                  false;
     width:                       450px;
-    height:                      100%;
-    x-offset:                    0px;
+    height:                      80%;
+    x-offset:                    38.5%;
     y-offset:                    0px;
 
     /* properties for all widgets */
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      0px solid;
-    border-radius:               0px;
+    border:                      2px solid;
+    border-radius:               15px;
     border-color:                @border-colour;
     cursor:                      "default";
     /* Backgroud Colors */
@@ -100,7 +100,7 @@ inputbar {
     spacing:                     10px;
     margin:                      0px;
     padding:                     8px;
-    border:                      0px solid;
+    border:                      2px solid;
     border-radius:               4px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
@@ -197,7 +197,7 @@ element {
     cursor:                      pointer;
 }
 element normal.normal {
-    background-color:            var(normal-background);
+    background-color:            transparent;
     text-color:                  var(normal-foreground);
 }
 element normal.urgent {
@@ -209,16 +209,16 @@ element normal.active {
     text-color:                  var(active-foreground);
 }
 element selected.normal {
-    background-color:            var(normal-foreground);
-    text-color:                  var(normal-background);
+    border:                      2px solid;
 }
 element selected.urgent {
     background-color:            var(selected-urgent-background);
     text-color:                  var(selected-urgent-foreground);
 }
 element selected.active {
-    background-color:            var(selected-active-background);
-    text-color:                  var(selected-active-foreground);
+    border:                      2px solid;
+    background-color:            var(active-background);
+    text-color:                  var(active-foreground);
 }
 element alternate.normal {
     background-color:            var(alternate-normal-background);
@@ -249,11 +249,11 @@ element-text {
 
 /*****----- Mode Switcher -----*****/
 mode-switcher{
-    enabled:                     true;
+    enabled:                     false;
     spacing:                     10px;
     margin:                      0px;
     padding:                     0px;
-    border:                      0px solid;
+    border:                      2px solid;
     border-radius:               4px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
