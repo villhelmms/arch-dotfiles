@@ -32,24 +32,24 @@
 
   "disk": {
     "interval": 30,
-    "format": "  {percentage_used}%",
+    "format": " {percentage_used}%",
     "path": "/"
   },
 
   "memory": {
-    "format": " {percentage}%"
+    "format": " {percentage}%"
   },
 
   "cpu": {
     "interval": 1,
-    "format": " {usage}%",
+    "format": " {usage}%",
     "min-length": 6,
     "max-length": 6,
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
   },
 
   "temperature": {
-    "format": " {temperatureC}°C",            
+    "format": " {temperatureC}°C",            
     "format-critical": " {temperatureC}°C",
     "interval": 1,
     "critical-threshold": 80,
@@ -77,10 +77,7 @@
       "5": "",
       "6": "",
       "active": "",
-      "default": "" 
-    },
-    "persistent-workspaces": {
-      "*": [ 2, 3, 4, 5, 6 ]
+      "default": "" 
     }
   },
 
@@ -118,10 +115,10 @@
   },
 
   "bluetooth": {
-    "format-on": "",
-    "format-off": "",
-    "format-disabled": "󰂲",
-    "format-connected": "󰂴",
+    "format-on": "󰂯",
+    "format-off": "󰂲",
+    "format-disabled": "",
+    "format-connected": "󰂱",
     "format-connected-battery": "{device_battery_percentage}% 󰂴",
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
@@ -145,15 +142,15 @@
       "default": ["🕨","🕩","🕪"]
     },
     "justify": "center",
-    "on-click": "amixer sset Master toggle",
-    "on-click-right": "pavucontrol",
+    "on-click": "pavucontrol",
+    "on-click-right": "amixer sset Master toggle",
     "tooltip-format": "{icon}  {volume}%"
   },
 
   "network": {
-      "format-wifi": " ",
+      "format-wifi": "",
       "format-ethernet":" ",
-      "format-disconnected": "",
+      "format-disconnected": "󰌙",
       "tooltip-format": "{ipaddr}",
       "tooltip-format-wifi": "{essid} ({signalStrength}%)  | {ipaddr}",
       "tooltip-format-ethernet": "{ifname} 🖧 | {ipaddr}",
