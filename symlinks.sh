@@ -25,38 +25,38 @@ HYPR_HOME="$HOME/.config/hypr"
 HYPR_DOT="$HOME/.dotfiles/hypr"
 
 if [ -d "$HYPR_HOME" ]; then
-    for DOT_FILE_HYPR in "$HYPR_DOT"/*; do
-        if [ -f "$DOT_FILE_HYPR" ]; then
-            HOME_FILE_HYPR="$HYPR_HOME/$(basename "$DOT_FILE_HYPR")"
+    for DOT_FILE in "$HYPR_DOT"/*; do
+        if [ -f "$DOT_FILE" ]; then
+            HOME_FILE="$HYPR_HOME/$(basename "$DOT_FILE")"
 
-            if [ -f "$HOME_FILE_HYPR" ]; then
-                echo "Backing up existing file: $HOME_FILE_HYPR"
-                mv "$HOME_FILE_HYPR" "$HOME_FILE_HYPR.old"
+            if [ -f "$HOME_FILE" ]; then
+                echo "Backing up existing file: $HOME_FILE"
+                mv "$HOME_FILE" "$HOME_FILE.old"
             fi
 
-            echo "Creating symlink for: $(basename "$DOT_FILE_HYPR")"
-            ln -s "$DOT_FILE_HYPR" "$HOME_FILE_HYPR"
+            echo "Creating symlink for: $(basename "$DOT_FILE")"
+            ln -s "$DOT_FILE" "$HOME_FILE"
         fi
     done
 else
     echo "Directory $HYPR_HOME does not exist."
 fi
 
-KITTY_HOME="$HOME/.config/hypr"
-KITTY_DOT="$HOME/.dotfiles/hypr"
+KITTY_HOME="$HOME/.config/kitty"
+KITTY_DOT="$HOME/.dotfiles/kitty"
 
 if [ -d "$KITTY_HOME" ]; then
-    for DOT_FILE_KITTY in "$KITTY_DOT"/*; do
-        if [ -f "$DOT_FILE_KITTY" ]; then
-            HOME_FILE_KITTY="$KITTY_HOME/$(basename "$DOT_FILE_KITTY")"
+    for DOT_FILE in "$KITTY_DOT"/*; do
+        if [ -f "$DOT_FILE" ]; then
+            HOME_FILE="$KITTY_HOME/$(basename "$DOT_FILE")"
 
-            if [ -f "$HOME_FILE_KITTY" ]; then
-                echo "Backing up existing file: $HOME_FILE_KITTY"
-                mv "$HOME_FILE_KITTY" "$HOME_FILE_KITTY.old"
+            if [ -f "$HOME_FILE" ]; then
+                echo "Backing up existing file: $HOME_FILE"
+                mv "$HOME_FILE" "$HOME_FILE.old"
             fi
 
-            echo "Creating symlink for: $(basename "$DOT_FILE_KITTY")"
-            ln -s "$DOT_FILE_KITTY" "$HOME_FILE_KITTY"
+            echo "Creating symlink for: $(basename "$DOT_FILE")"
+            ln -s "$DOT_FILE" "$HOME_FILE"
         fi
     done
 else
