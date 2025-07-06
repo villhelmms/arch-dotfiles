@@ -1,22 +1,7 @@
 #!/bin/bash
 
-# List of packages to check and install
-PACKAGES=("hyprlock" "hyprpaper")
+sudo pacman -S --noconfirm hyprlock hyprpaper
 
-# Function to check and install packages using pacman
-check_and_install_packages() {
-    for package in "${PACKAGES[@]}"; do
-        if ! pacman -Q | grep -q "^$package "; then
-            echo "Installing $package..."
-            sudo pacman -S --noconfirm "$package"
-        else
-            echo "$package is already installed."
-        fi
-    done
-    echo "All needed packages are installed."
-}
-
-# Function to handle .dotfiles directory
 setup_dotfiles() {
     DOTFILES_DIR="$HOME/.dotfiles"
     SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
