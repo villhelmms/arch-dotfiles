@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo pacman -S --noconfirm hyprlock hyprpaper kitty
-sudo pacman -S --noconfig ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
+sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
 
 setup_dotfiles() {
     DOTFILES_DIR="$HOME/.dotfiles"
@@ -19,24 +19,23 @@ setup_dotfiles() {
     cp -r "$SCRIPT_DIR"/* "$DOTFILES_DIR/"
 }
 
-check_and_install_packages
 setup_dotfiles
 
 HYPR_HOME="$HOME/.config/hypr"
 HYPR_DOT="$HOME/.dotfiles/hypr"
 
 if [ -d "$HYPR_HOME" ]; then
-    for DOT_FILE in "$HYPR_DOT"/*; do
-        if [ -f "$DOT_FILE" ]; then
-            HOME_FILE="$HYPR_HOME/$(basename "$DOT_FILE")"
+    for DOT_FILE_HYPR in "$HYPR_DOT"/*; do
+        if [ -f "$DOT_FILE_HYPR" ]; then
+            HOME_FILE_HYPR="$HYPR_HOME/$(basename "$DOT_FILE_HYPR")"
 
-            if [ -f "$HOME_FILE" ]; then
-                echo "Backing up existing file: $HOME_FILE"
-                mv "$HOME_FILE" "$HOME_FILE.old"
+            if [ -f "$HOME_FILE_HYPR" ]; then
+                echo "Backing up existing file: $HOME_FILE_HYPR"
+                mv "$HOME_FILE_HYPR" "$HOME_FILE_HYPR.old"
             fi
 
-            echo "Creating symlink for: $(basename "$DOT_FILE")"
-            ln -s "$DOT_FILE" "$HOME_FILE"
+            echo "Creating symlink for: $(basename "$DOT_FILE_HYPR")"
+            ln -s "$DOT_FILE_HYPR" "$HOME_FILE_HYPR"
         fi
     done
 else
@@ -47,17 +46,17 @@ KITTY_HOME="$HOME/.config/hypr"
 KITTY_DOT="$HOME/.dotfiles/hypr"
 
 if [ -d "$KITTY_HOME" ]; then
-    for DOT_FILE in "$KITTY_DOT"/*; do
-        if [ -f "$DOT_FILE" ]; then
-            HOME_FILE="$KITTY_HOME/$(basename "$DOT_FILE")"
+    for DOT_FILE_KITTY in "$KITTY_DOT"/*; do
+        if [ -f "$DOT_FILE_KITTY" ]; then
+            HOME_FILE_KITTY="$KITTY_HOME/$(basename "$DOT_FILE_KITTY")"
 
-            if [ -f "$HOME_FILE" ]; then
-                echo "Backing up existing file: $HOME_FILE"
-                mv "$HOME_FILE" "$HOME_FILE.old"
+            if [ -f "$HOME_FILE_KITTY" ]; then
+                echo "Backing up existing file: $HOME_FILE_KITTY"
+                mv "$HOME_FILE_KITTY" "$HOME_FILE_KITTY.old"
             fi
 
-            echo "Creating symlink for: $(basename "$DOT_FILE")"
-            ln -s "$DOT_FILE" "$HOME_FILE"
+            echo "Creating symlink for: $(basename "$DOT_FILE_KITTY")"
+            ln -s "$DOT_FILE_KITTY" "$HOME_FILE_KITTY"
         fi
     done
 else
