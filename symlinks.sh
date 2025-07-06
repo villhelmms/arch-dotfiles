@@ -26,14 +26,17 @@ HYPR_HOME="$HOME/.config/hypr"
 HYPR_DOT="$HOME/.dotfiles/hypr"
 
 if [ -d "$HYPR_HOME" ]; then
-    for DOT_FILE in "$HYPR_DOT"/*; do 
+    for DOT_FILE in "$HYPR_DOT"/*; do
         if [ -f "$DOT_FILE" ]; then
-            HOME_FILE=$(basename "$DOT_FILE")
-            if [ -f "$HYPR_HOME/$HOME_FILE" ]; then
-                echo "File $HOME_FILE is in both $HYPR_DOT and $HYPR_HOME"
-                mv $HYPR_HOME/$HOME_FILE $HYPR_HOME/$HOME_FILE.old
-                ln -s $HYPR_DOT/$DOT_FILE $HYPR_HOME/$HOME_FILE
+            HOME_FILE="$HYPR_HOME/$(basename "$DOT_FILE")"
+
+            if [ -f "$HOME_FILE" ]; then
+                echo "Backing up existing file: $HOME_FILE"
+                mv "$HOME_FILE" "$HOME_FILE.old"
             fi
+
+            echo "Creating symlink for: $(basename "$DOT_FILE")"
+            ln -s "$DOT_FILE" "$HOME_FILE"
         fi
     done
 else
