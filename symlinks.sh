@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sudo pacman -S --noconfirm hyprlock hyprpaper
+sudo pacman -S --noconfirm hyprlock hyprpaper kitty
+sudo pacman -S --noconfig ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
 
 setup_dotfiles() {
     DOTFILES_DIR="$HOME/.dotfiles"
