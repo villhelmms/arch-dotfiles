@@ -18,7 +18,6 @@ setup_dotfiles() {
     cp -r "$SCRIPT_DIR"/* "$DOTFILES_DIR/"
 }
 
-# Execute functions
 check_and_install_packages
 setup_dotfiles
 
@@ -41,4 +40,25 @@ if [ -d "$HYPR_HOME" ]; then
     done
 else
     echo "Directory $HYPR_HOME does not exist."
+fi
+
+KITTY_HOME="$HOME/.config/hypr"
+KITTY_DOT="$HOME/.dotfiles/hypr"
+
+if [ -d "$KITTY_HOME" ]; then
+    for DOT_FILE in "$KITTY_DOT"/*; do
+        if [ -f "$DOT_FILE" ]; then
+            HOME_FILE="$KITTY_HOME/$(basename "$DOT_FILE")"
+
+            if [ -f "$HOME_FILE" ]; then
+                echo "Backing up existing file: $HOME_FILE"
+                mv "$HOME_FILE" "$HOME_FILE.old"
+            fi
+
+            echo "Creating symlink for: $(basename "$DOT_FILE")"
+            ln -s "$DOT_FILE" "$HOME_FILE"
+        fi
+    done
+else
+    echo "Directory $KITTY_HOME does not exist."
 fi
