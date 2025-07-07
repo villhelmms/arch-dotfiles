@@ -5,7 +5,7 @@
 My take on Arch .dotfiles (customization). These are ***Work in Progress** dotfiles so don't expect anything spectacular. I am not a programmer or a masive developer. I just want to try customize my Arch install.
 
 > [!CAUTION]
-> The install script is meant for a fresh Arch Linux install using `archinstall` Hyprland profile. I cannot guarentee that this script will work for your system or existing Arch installs. Please go through and read the script before running it!
+> The install script is meant for a fresh Arch Linux install using `archinstall` Hyprland profile. I cannot guarentee that this script will work for your system or existing Arch installs. Please go through and read the script before running it! Everything is still a **Work in Progress**!
 
 Custom configurations for the listed projects / packages:
 - hyprland
