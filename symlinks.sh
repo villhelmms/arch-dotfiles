@@ -24,6 +24,11 @@ setup_dotfiles
 HYPR_HOME="$HOME/.config/hypr"
 HYPR_DOT="$HOME/.dotfiles/hypr"
 
+if [ ! -d "$HYPR_HOME" ]; then
+    echo "Directory $HYPR_HOME does not exist. Creating it now."
+    mkdir -p "$HYPR_HOME"
+fi
+
 if [ -d "$HYPR_HOME" ]; then
     for DOT_FILE in "$HYPR_DOT"/*; do
         if [ -f "$DOT_FILE" ]; then
@@ -38,12 +43,15 @@ if [ -d "$HYPR_HOME" ]; then
             ln -s "$DOT_FILE" "$HOME_FILE"
         fi
     done
-else
-    echo "Directory $HYPR_HOME does not exist."
 fi
 
 WAYBAR_HOME="$HOME/.config/waybar"
 WAYBAR_DOT="$HOME/.dotfiles/waybar"
+
+if [ ! -d "$WAYBAR_HOME" ]; then
+    echo "Directory $WAYBAR_HOME does not exist. Creating it now."
+    mkdir -p "$WAYBAR_HOME"
+fi
 
 if [ -d "$WAYBAR_HOME" ]; then
     for DOT_FILE in "$WAYBAR_DOT"/*; do
@@ -59,8 +67,11 @@ if [ -d "$WAYBAR_HOME" ]; then
             ln -s "$DOT_FILE" "$HOME_FILE"
         fi
     done
-else
-    echo "Directory $WAYBAR_HOME does not exist."
+fi
+
+if [ ! -d "$KITTY_HOME" ]; then
+    echo "Directory $KITTY_HOME does not exist. Creating it now."
+    mkdir -p "$KITTY_HOME"
 fi
 
 KITTY_HOME="$HOME/.config/kitty"
@@ -80,8 +91,6 @@ if [ -d "$KITTY_HOME" ]; then
             ln -s "$DOT_FILE" "$HOME_FILE"
         fi
     done
-else
-    echo "Directory $KITTY_HOME does not exist."
 fi
 
 if [ "$SHELL" != "$(which zsh)" ]; then
