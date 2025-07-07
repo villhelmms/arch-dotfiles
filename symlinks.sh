@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -Syu --noconfirm
+# sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm fastfetch hyprlock hyprpaper kitty rofi waybar zsh zoxide
 sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
 
@@ -103,7 +103,7 @@ fi
 #     echo "The default shell is already set to zsh."
 # fi
 
-kitty --hold -- zsh -c "sh -c '$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)'"
+kitty --hold -c "sh -c '$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)'"
 
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
