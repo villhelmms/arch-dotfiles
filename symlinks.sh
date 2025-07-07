@@ -102,23 +102,26 @@ else
     echo "The default shell is already set to zsh."
 fi
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+source <(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)
+
+echo "Oh My Zsh installation completed. Continuing with the rest of the script..."
 
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
 
-ZSH_HOME="$HOME"
-ZSH_DOT="$HOME/.dotfiles/zsh"
+OH_ZSH_HOME="$HOME"
+OH_ZSH_DOT="$HOME/.dotfiles/zsh"
 
 declare -A files=(
-    [".zshrc"]="$ZSH_HOME"
-    ["bira-custom.zsh-theme"]="$ZSH_HOME/.oh-my-zsh/themes"
+    [".zshrc"]="$OH_ZSH_HOME"
+    ["bira-custom.zsh-theme"]="$OH_ZSH_HOME/.oh-my-zsh/themes"
 )
 
 for FILE in "${!files[@]}"; do
-    SOURCE_FILE="$ZSH_DOT/$FILE"
+    SOURCE_FILE="$OH_ZSH_DOT/$FILE"
     DEST_DIR="${files[$FILE]}"
     DEST_FILE="$DEST_DIR/$FILE"
 
