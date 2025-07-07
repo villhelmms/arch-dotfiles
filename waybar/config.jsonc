@@ -8,7 +8,7 @@
   "custom/logo": {
     "format": "",
     "tooltip": false,
-    "on-click": "~/.dotfiles/rofi/powermenu/type-1/powermenu.sh"
+    "on-click": "~/.config/rofi/powermenu/type-1/powermenu.sh"
   },
 
   "clock": {
