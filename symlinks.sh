@@ -113,7 +113,7 @@ if [ -d "$COLORS_DIR" ]; then
 
     for color_file in "$COLORS_DIR"/*; do
         if [ -f "$color_file" ]; then
-            if [[ "$(basename "$color_file")" == "ondark-custom.rasi" ]]; then
+            if [[ "$(basename "$color_file")" == "onedark-custom.rasi" ]]; then
                 create_symlink "$color_file" "$ROFI_HOME/colors/$(basename "$color_file")"
             elif [[ "$(basename "$color_file")" == "colors.rasi" ]]; then
                 create_symlink "$color_file" "$ROFI_HOME/launchers/type-1/shared/$(basename "$color_file")"
