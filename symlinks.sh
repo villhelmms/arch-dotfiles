@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm fastfetch hyprlock hyprpaper kitty rofi waybar zsh zoxide
 sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
 
@@ -93,19 +94,18 @@ if [ -d "$KITTY_HOME" ]; then
     done
 fi
 
-if [ "$SHELL" != "$(which zsh)" ]; then
-    echo "Changing default shell to zsh..."
-    chsh -s "$(which zsh)"
+# if [ "$SHELL" != "$(which zsh)" ]; then
+#     echo "Changing default shell to zsh..."
+#     chsh -s "$(which zsh)"
 
-    echo "Default shell changed to zsh. Please log out and log back in for the changes to take effect."
-else
-    echo "The default shell is already set to zsh."
-fi
+#     echo "Default shell changed to zsh. Please log out and log back in for the changes to take effect."
+# else
+#     echo "The default shell is already set to zsh."
+# fi
+
+kitty --hold -- zsh -c "sh -c '$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)'"
 
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-source <(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)
-
-echo "Oh My Zsh installation completed. Continuing with the rest of the script..."
 
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
