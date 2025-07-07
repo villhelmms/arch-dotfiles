@@ -42,6 +42,27 @@ else
     echo "Directory $HYPR_HOME does not exist."
 fi
 
+WAYBAR_HOME="$HOME/.config/waybar"
+WAYBAR_DOT="$HOME/.dotfiles/waybar"
+
+if [ -d "$WAYBAR_HOME" ]; then
+    for DOT_FILE in "$WAYBAR_DOT"/*; do
+        if [ -f "$DOT_FILE" ]; then
+            HOME_FILE="$WAYBAR_HOME/$(basename "$DOT_FILE")"
+
+            if [ -f "$HOME_FILE" ]; then
+                echo "Backing up existing file: $HOME_FILE"
+                mv "$HOME_FILE" "$HOME_FILE.old"
+            fi
+
+            echo "Creating symlink for: $(basename "$DOT_FILE")"
+            ln -s "$DOT_FILE" "$HOME_FILE"
+        fi
+    done
+else
+    echo "Directory $WAYBAR_HOME does not exist."
+fi
+
 KITTY_HOME="$HOME/.config/kitty"
 KITTY_DOT="$HOME/.dotfiles/kitty"
 
@@ -78,3 +99,33 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugi
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
+
+ZSH_HOME="$HOME"
+ZSH_DOT="$HOME/.dotfiles/zsh"
+
+declare -A files=(
+    [".zshrc"]="$ZSH_HOME"
+    ["bira-custom.zsh-theme"]="$ZSH_HOME/.oh-my-zsh/themes"
+)
+
+for FILE in "${!files[@]}"; do
+    SOURCE_FILE="$ZSH_DOT/$FILE"
+    DEST_DIR="${files[$FILE]}"
+    DEST_FILE="$DEST_DIR/$FILE"
+
+    if [ -f "$SOURCE_FILE" ]; then
+        if [ -d "$DEST_DIR" ]; then
+            if [ -f "$DEST_FILE" ]; then
+                echo "Backing up existing file: $DEST_FILE"
+                mv "$DEST_FILE" "$DEST_FILE.old"
+            fi
+
+            echo "Creating symlink for: $FILE"
+            ln -sf "$SOURCE_FILE" "$DEST_FILE"
+        else
+            echo "Destination directory $DEST_DIR does not exist."
+        fi
+    else
+        echo "Source file $SOURCE_FILE does not exist."
+    fi
+done

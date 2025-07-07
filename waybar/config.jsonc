@@ -8,7 +8,7 @@
   "custom/logo": {
     "format": "",
     "tooltip": false,
-    "on-click": "~/.config/rofi/powermenu/type-1/powermenu.sh"
+    "on-click": "~/.dotfiles/rofi/powermenu/type-1/powermenu.sh"
   },
 
   "clock": {
@@ -25,7 +25,7 @@
   "custom/weather": {
     "format": "{}",
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/weather.sh",
+    "exec": "~/.dotfiles/waybar/scripts/weather.sh",
     "interval": 10,
     "on-click": "firefox https://wttr.in/Valka"
   },
@@ -59,7 +59,7 @@
   "custom/powerDraw": {
     "format": "{}",
     "interval": 1,
-    "exec": "~/.config/waybar/scripts/powerdraw.sh",
+    "exec": "~/.dotfiles/waybar/scripts/powerdraw.sh",
     "return-type": "json"
   },
 
