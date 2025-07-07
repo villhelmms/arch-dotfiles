@@ -82,9 +82,7 @@ fi
 # ------ ROFI FILES ------ #
 # ------------------------ #
 
-git clone --depth=1 https://github.com/adi1090x/rofi.git
-chmod +x /rofi/setup.sh
-./rofi/setup.sh
+git clone --depth=1 https://github.com/adi1090x/rofi.git && chmod +x rofi/setup.sh && ./rofi/setup.sh
 
 ROFI_HOME="$HOME/.config/rofi"
 ROFI_DOT="$HOME/.dotfiles/rofi"
