@@ -27,7 +27,7 @@
     "return-type": "json",
     "exec": "~/.dotfiles/waybar/scripts/weather.sh",
     "interval": 10,
-    "on-click": "firefox https://wttr.in/Valka"
+    "on-click": "firefox https://wttr.in/valka"
   },
 
   "disk": {

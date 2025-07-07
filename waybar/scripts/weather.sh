@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LOC="Valka"
+LOC="valka"
 
 text="$(curl -s "https://wttr.in/$LOC?format=1" | sed 's/ //g')"
 tooltip="$(curl -s "https://wttr.in/$LOC?0QT" |
