@@ -26,3 +26,6 @@ Projects / packages yet to be customized:
 - rofi - [adi1090x/rofi](https://github.com/adi1090x/rofi)
 - kitty - [JaKooLit/Hyprland-Dots](https://github.com/JaKooLit/Hyprland-Dots)
 - hyprlock - ???
+
+## Screenshots
+**WIP**
