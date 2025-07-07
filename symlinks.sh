@@ -82,7 +82,7 @@ fi
 # ------ ROFI FILES ------ #
 # ------------------------ #
 
-kitty --hold bash -c "git clone --depth=1 https://github.com/adi1090x/rofi.git && chmod +x rofi/setup.sh && ./rofi/setup.sh"
+kitty --hold bash -c "git clone --depth=1 https://github.com/adi1090x/rofi.git && cd rofi && chmod +x setup.sh && ./setup.sh"
 
 ROFI_HOME="$HOME/.config/rofi"
 ROFI_DOT="$HOME/.dotfiles/rofi"
